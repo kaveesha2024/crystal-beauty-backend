@@ -11,7 +11,6 @@ const UserSignupAction = async (request, response) => {
         });
         return;
     }
-
     if (
         body?.password === '' ||
         body?.email === '' ||
@@ -26,12 +25,9 @@ const UserSignupAction = async (request, response) => {
         });
         return;
     }
-
     const user = request.body;
-
     let newUserId = '';
     let res = null;
-
     const alreadyExistedEmail = await User.findOne({ email: user.email });
     if (!alreadyExistedEmail) {
         const phoneNumberAlreadyExisted = await User.findOne({ phoneNumber: user.phoneNumber });
@@ -44,9 +40,7 @@ const UserSignupAction = async (request, response) => {
                         res = await User.find({ userId: newUserId });
                     } catch (error) {}
                 } while (res == null);
-
                 const hashedPassword = bcrypt.hashSync(user.password, 10);
-
                 const newUser = new User({
                     userId: newUserId,
                     email: user.email,
@@ -82,7 +76,6 @@ const UserSignupAction = async (request, response) => {
         });
         return;
     }
-
     response.json({
         status: 406,
         message: 'Email already exists',
