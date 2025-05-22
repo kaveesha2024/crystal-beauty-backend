@@ -47,7 +47,7 @@ const UserSignupAction = async (request, response) => {
                     password: hashedPassword,
                     firstName: user.firstName,
                     lastName: user.lastName,
-                    phoneNumber: user.phoneNumber,
+                    phoneNumber: String(user.phoneNumber),
                     address: user.address,
                     profilePicture: user.profilePicture,
                 });
