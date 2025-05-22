@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import router from './api/api.js';
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
@@ -12,6 +13,9 @@ mongoose
     .connect(process.env.DB_URI)
     .then(() => console.log('connected to db'))
     .catch(err => console.log(err));
+
+app.use('/api', router);
+
 app.listen(port, () => {
     console.log(`server is running on port http://127.0.0.1:${port}`);
 });
