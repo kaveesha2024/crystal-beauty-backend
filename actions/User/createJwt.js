@@ -1,7 +1,7 @@
 import User from '../../model/User.js';
 import jwt from 'jsonwebtoken';
 
-const createJwtForSignupUser = async (user, response) => {
+const getJsonWebToken = async (user, response) => {
     const signupUser = await User.findOne({ email: user.email });
     if (!signupUser) {
         response.json({
@@ -45,4 +45,4 @@ const createJwtForSignupUser = async (user, response) => {
         user: signupUser,
     });
 };
-export default createJwtForSignupUser;
+export default getJsonWebToken;

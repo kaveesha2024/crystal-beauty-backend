@@ -1,7 +1,7 @@
 import User from '../../model/User.js';
 import random from '../../utility/random/random.js';
 import bcrypt from 'bcrypt';
-import createJwtForSignupUser from './createJwt.js';
+import getJsonWebToken from './createJwt.js';
 const UserSignupAction = async (request, response) => {
     const { body } = request;
     if (request.body === null) {
@@ -60,7 +60,7 @@ const UserSignupAction = async (request, response) => {
                 try {
                     const res = await newUser.save();
                     if (res) {
-                        await createJwtForSignupUser(user, response);
+                        await getJsonWebToken(user, response);
                         return;
                     }
                     response.json({
