@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 //firstName, lastName, email, password, role, isVerified, phoneNumber, address, profilePicture, isBlocked
 const userSchema = new mongoose.Schema(
     {
@@ -28,8 +28,8 @@ const userSchema = new mongoose.Schema(
         },
         role: {
             type: String,
-            default: 'user',
-            enum: ['user', 'admin'],
+            default: "user",
+            enum: ["user", "admin"],
         },
         isVerified: {
             type: Boolean,
@@ -40,6 +40,7 @@ const userSchema = new mongoose.Schema(
             required: true,
             unique: true,
             nullable: true,
+            length: 10,
         },
         address: {
             type: String,
@@ -49,7 +50,7 @@ const userSchema = new mongoose.Schema(
         profilePicture: {
             type: String,
             required: true,
-            default: 'https://i.sstatic.net/l60Hf.png',
+            default: "https://i.sstatic.net/l60Hf.png",
         },
         isBlocked: {
             type: Boolean,
@@ -60,5 +61,5 @@ const userSchema = new mongoose.Schema(
         timestamps: true,
     }
 );
-const User = mongoose.model('Users', userSchema);
+const User = mongoose.model("Users", userSchema);
 export default User;

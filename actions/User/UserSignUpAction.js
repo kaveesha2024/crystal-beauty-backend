@@ -1,32 +1,38 @@
-import User from '../../model/User.js';
-import random from '../../utility/random/random.js';
-import bcrypt from 'bcrypt';
-import getJsonWebToken from './createJwt.js';
+import User from "../../model/User.js";
+import random from "../../utility/random/random.js";
+import bcrypt from "bcrypt";
+import getJsonWebToken from "./createJwt.js";
 const UserSignupAction = async (request, response) => {
     const { body } = request;
     if (request.body === null) {
         response.json({
             status: 400,
-            message: 'Bad Request',
+            message: "Bad Request",
         });
         return;
     }
     if (
-        body?.password === '' ||
-        body?.email === '' ||
-        body?.address === '' ||
-        body?.phoneNumber === '' ||
-        body?.firstName === '' ||
-        body?.lastName === ''
+        body?.password === "" ||
+        body?.email === "" ||
+        body?.address === "" ||
+        body?.phoneNumber === "" ||
+        body?.firstName === "" ||
+        body?.lastName === ""
     ) {
         response.json({
             status: 422,
-            message: 'Unprocessable Content',
+            message: "Unprocessable Content",
         });
         return;
     }
     const user = request.body;
-    let newUserId = '';
+    if (user.phoneNumber.length < 10) {
+        return response.json({
+            status: 406,
+            message: "Phone number must be 10 digits",
+        });
+    }
+    let newUserId = "";
     let res = null;
     const alreadyExistedEmail = await User.findOne({ email: user.email });
     if (!alreadyExistedEmail) {
@@ -36,7 +42,7 @@ const UserSignupAction = async (request, response) => {
             if (!alreadyExistedAddress) {
                 do {
                     try {
-                        newUserId = 'CBCU' + random(10);
+                        newUserId = "CBCU" + random(10);
                         res = await User.find({ userId: newUserId });
                     } catch (error) {}
                 } while (res == null);
@@ -59,26 +65,26 @@ const UserSignupAction = async (request, response) => {
                     }
                     response.json({
                         status: 500,
-                        message: 'Internal Server Error',
+                        message: "Internal Server Error",
                     });
                 } catch (error) {}
                 return;
             }
             response.json({
                 status: 406,
-                message: 'Address already exists',
+                message: "Address already exists",
             });
             return;
         }
         response.json({
             status: 406,
-            message: 'Phone number already exists',
+            message: "Phone number already exists",
         });
         return;
     }
     response.json({
         status: 406,
-        message: 'Email already exists',
+        message: "Email already exists",
     });
 };
 export default UserSignupAction;
