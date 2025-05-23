@@ -11,6 +11,3 @@ export const UserSignUpController = async (request, response) => {
 // "Phone number must be 10 digits"
 
 //all parts are done, requests validated, failed validations will send a JSON response.
-export const VerifiedEmailController = async (request, response) => {
-    await VerifyEmailAction(request, response);
-};
