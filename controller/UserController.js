@@ -1,4 +1,6 @@
 import UserSignupAction from "../actions/User/UserSignUpAction.js";
+import VerifyEmailAction from "../actions/verify/VerifyEmailAction.js";
+import { request } from "express";
 
 export const UserSignUpController = async (request, response) => {
     await UserSignupAction(request, response);
@@ -9,3 +11,6 @@ export const UserSignUpController = async (request, response) => {
 // "Phone number must be 10 digits"
 
 //all parts are done, requests validated, failed validations will send a JSON response.
+export const VerifiedEmailController = async (request, response) => {
+    await VerifyEmailAction(request, response);
+};
