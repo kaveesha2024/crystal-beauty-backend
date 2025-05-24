@@ -5,8 +5,8 @@ const getJsonWebToken = async (user, response) => {
     const signupUser = await User.findOne({ email: user.email });
     if (!signupUser) {
         response.json({
-            status: 500,
-            message: 'Internal Server Error',
+            status: 404,
+            message: 'user not found',
         });
         return;
     }
@@ -37,7 +37,7 @@ const getJsonWebToken = async (user, response) => {
             profilePicture,
             isBlocked,
         },
-        'secret'
+        process.env.JWT_KEY
     );
     response.json({
         status: 200,
