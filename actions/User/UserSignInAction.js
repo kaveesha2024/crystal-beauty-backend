@@ -39,7 +39,6 @@ const UserSignInAction = async (request, response) => {
             });
             return;
         }
-        console.log('token is creating');
         const token = jwt.sign({
             userId: user.userId,
             firstName: user.firstName,
@@ -53,7 +52,6 @@ const UserSignInAction = async (request, response) => {
             isBlocked: user.isBlocked,
 
         }, process.env.JWT_KEY);
-        console.log(token);
         response.json({
             status: 200,
             token: token,
