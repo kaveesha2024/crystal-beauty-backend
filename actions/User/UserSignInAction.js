@@ -40,16 +40,16 @@ const UserSignInAction = async (request, response) => {
             return;
         }
         const token = jwt.sign({
-            userId: user.userId,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            role: user.role,
-            isVerified: user.isVerified,
-            phoneNumber: user.phoneNumber,
-            address: user.address,
-            profilePicture: user.profilePicture,
-            isBlocked: user.isBlocked,
+            userId: validUser?.userId,
+            firstName: validUser?.firstName,
+            lastName: validUser?.lastName,
+            email: validUser?.email,
+            role: validUser?.role,
+            isVerified: validUser?.isVerified,
+            phoneNumber: validUser?.phoneNumber,
+            address: validUser?.address,
+            profilePicture: validUser?.profilePicture,
+            isBlocked: validUser?.isBlocked,
 
         }, process.env.JWT_KEY);
         response.json({
