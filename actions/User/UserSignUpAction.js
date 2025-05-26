@@ -1,7 +1,7 @@
 import User from "../../model/User.js";
 import random from "../../utility/random/random.js";
 import bcrypt from "bcrypt";
-import getJsonWebToken from "./createJwt.js";
+import getJsonWebToken from "../../utility/createJwt/createJwt.js";
 const UserSignupAction = async (request, response) => {
     const { body } = request;
     if (request.body === null) {
