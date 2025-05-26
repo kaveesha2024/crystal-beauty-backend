@@ -1,5 +1,6 @@
 import express from "express";
 import {
+    DeleteUserController,
     GetAllUsersController,
     UpdateUserController,
     UserSignInController,
@@ -17,6 +18,7 @@ router.get("/auth/get-otp", GetOtpController);
 //Users
 router.get("/get-all-users", GetAllUsersController);
 router.put("/update-user", UpdateUserController);
+router.delete("/delete-user", DeleteUserController);
 //admin
 
 export default router;

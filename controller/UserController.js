@@ -2,6 +2,7 @@ import UserSignupAction from "../actions/User/UserSignUpAction.js";
 import UserSignInAction from "../actions/User/UserSignInAction.js";
 import GetAllUsersAction from "../actions/User/GetAllUsersAction.js";
 import UpdateUserAction from "../actions/User/UpdateUserAction.js";
+import DeleteUserAction from "../actions/User/DeleteUserAction.js";
 
 //status: 400, 406, 422,  500,
 //messages: 'Bad Request', 'Unprocessable Content', 'Internal Server Error',
@@ -27,3 +28,6 @@ export const GetAllUsersController = async (request, response) => {
 export const UpdateUserController = async (request, response) => {
     await UpdateUserAction(request, response);
 };
+export const DeleteUserController = async (request, response) => {
+    await DeleteUserAction(request, response);
+}
