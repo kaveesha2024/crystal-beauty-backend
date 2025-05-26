@@ -1,5 +1,10 @@
 import express from "express";
-import { GetAllUsersController, UserSignInController, UserSignUpController } from "../controller/UserController.js";
+import {
+    GetAllUsersController,
+    UpdateUserController,
+    UserSignInController,
+    UserSignUpController,
+} from "../controller/UserController.js";
 import { GetOtpController, VerifyEmailController } from "../controller/VerifyController.js";
 const router = express.Router();
 
@@ -11,6 +16,7 @@ router.get("/auth/get-otp", GetOtpController);
 
 //Users
 router.get("/get-all-users", GetAllUsersController);
+router.put("/update-user", UpdateUserController);
 //admin
 
 export default router;

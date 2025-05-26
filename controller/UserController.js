@@ -1,6 +1,7 @@
 import UserSignupAction from "../actions/User/UserSignUpAction.js";
 import UserSignInAction from "../actions/User/UserSignInAction.js";
 import GetAllUsersAction from "../actions/User/GetAllUsersAction.js";
+import UpdateUserAction from "../actions/User/UpdateUserAction.js";
 
 //status: 400, 406, 422,  500,
 //messages: 'Bad Request', 'Unprocessable Content', 'Internal Server Error',
@@ -21,3 +22,8 @@ export const UserSignInController = async (request, response) => {
 export const GetAllUsersController = async (request, response) => {
     await GetAllUsersAction(request, response);
 }
+
+
+export const UpdateUserController = async (request, response) => {
+    await UpdateUserAction(request, response);
+};
