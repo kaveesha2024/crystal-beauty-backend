@@ -13,21 +13,18 @@ import DeleteUserAction from "../actions/User/DeleteUserAction.js";
 export const UserSignUpController = async (request, response) => {
     await UserSignupAction(request, response);
 };
-
 //input email and password only
 //status: 400, 401, 404, 422, 500
 export const UserSignInController = async (request, response) => {
   await UserSignInAction(request, response);
 };
-
 export const GetAllUsersController = async (request, response) => {
     await GetAllUsersAction(request, response);
 }
-
-
 export const UpdateUserController = async (request, response) => {
     await UpdateUserAction(request, response);
 };
+//user id from query params
 export const DeleteUserController = async (request, response) => {
     await DeleteUserAction(request, response);
 }
