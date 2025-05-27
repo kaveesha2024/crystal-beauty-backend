@@ -2,7 +2,7 @@ import { isAdmin, isBodyNull, isUserNull } from "../../utility/refactor/refactor
 import User from "../../model/User.js";
 
 const UpdateUserAction = async (request, response) => {
-    if (isUserNull(request.user) || !isAdmin(request.user?.role) || isBodyNull(request.body)) {
+    if (isUserNull(request.user) || isBodyNull(request.body)) {
         response.json({
             status: 401,
             message: "Unauthorized",
