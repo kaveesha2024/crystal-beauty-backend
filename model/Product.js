@@ -43,18 +43,19 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
     images: [String],
-    reviews: {
-        type: [{
-            comment: String,
-            reviewImages: [String],
-            isHidden: {
-                type: Boolean,
-                default: true,
-                required: true,
-            },
-        }],
-        default: [],
-    }
+    // reviews: {
+    //     type: [{
+    //         comment: String,
+    //         userId: String,
+    //         reviewImages: [String],
+    //         isHidden: {
+    //             type: Boolean,
+    //             default: true,
+    //             required: true,
+    //         },
+    //     }],
+    //     default: [],
+    // }
 }, { timestamps: true });
 const Product = mongoose.model('Products', productSchema);
 export default Product;
