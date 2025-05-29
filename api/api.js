@@ -7,6 +7,7 @@ import {
     UserSignUpController,
 } from "../controller/UserController.js";
 import {  StoreOtp, VerifyEmailController } from "../controller/VerifyController.js";
+import { CreateProductController } from "../controller/ProductController.js";
 const router = express.Router();
 
 //Authentication
@@ -20,5 +21,6 @@ router.put("/update-user", UpdateUserController);
 //admin
 router.get("/get-all-users", GetAllUsersController);
 router.delete("/delete-user", DeleteUserController);
+router.post("/create_product", CreateProductController);
 
 export default router;
