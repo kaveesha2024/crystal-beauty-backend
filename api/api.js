@@ -6,19 +6,19 @@ import {
     UserSignInController,
     UserSignUpController,
 } from "../controller/UserController.js";
-import { GetOtpController, VerifyEmailController } from "../controller/VerifyController.js";
+import {  StoreOtp, VerifyEmailController } from "../controller/VerifyController.js";
 const router = express.Router();
 
 //Authentication
 router.post("/signup", UserSignUpController);
 router.post("/signin", UserSignInController);
 router.post("/auth/verify", VerifyEmailController);
-router.get("/auth/get-otp", GetOtpController);
+router.post("/auth/get-otp", StoreOtp);
 
 //Users
-router.get("/get-all-users", GetAllUsersController);
 router.put("/update-user", UpdateUserController);
-router.delete("/delete-user", DeleteUserController);
 //admin
+router.get("/get-all-users", GetAllUsersController);
+router.delete("/delete-user", DeleteUserController);
 
 export default router;

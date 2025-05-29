@@ -1,9 +1,17 @@
 import random from "../../utility/random/random.js";
 import User from "../../model/User.js";
 import Otp from "../../model/Otp.js";
+import { isUserNull } from "../../utility/refactor/refactor.js";
 
-const GetOtpAction = async (request, response) => {
+const StoreOtpAction = async (request, response) => {
     const { email } = request.body;
+    if (isUserNull(request.user)){
+        response.json({
+            status: 401,
+            message: "Unauthorized",
+        });
+        return;
+    }
     if (email === "" || email === null) {
         response.json({
             status: 400,
@@ -20,8 +28,8 @@ const GetOtpAction = async (request, response) => {
             });
             return;
         }
-
-        const otp = random(6);
+//
+        const otp = request.body?.otp;
         try {
             const newOtp = new Otp({
                 otp: otp,
@@ -53,4 +61,4 @@ const GetOtpAction = async (request, response) => {
         });
     }
 };
-export default GetOtpAction;
+export default StoreOtpAction;
