@@ -1,4 +1,3 @@
-import random from "../../utility/random/random.js";
 import User from "../../model/User.js";
 import Otp from "../../model/Otp.js";
 import { isUserNull } from "../../utility/refactor/refactor.js";
