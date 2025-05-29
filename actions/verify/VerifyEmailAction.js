@@ -11,8 +11,7 @@ const VerifyEmailAction = async (request, response) => {
         return;
     }
     try {
-        console.log(request.body.email, request.body.otp);
-        const validOtp = await Otp.findOne({email: request.body?.email});
+        const validOtp = await Otp.findOne({email: request.body?.email, otp: request.body?.otp});
         if (validOtp && validOtp.otp == request.body?.otp) {
             await User.updateOne({email: request.body?.email}, {isVerified: true});
             response.json({
