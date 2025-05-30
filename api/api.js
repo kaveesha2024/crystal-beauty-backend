@@ -8,7 +8,7 @@ import {
 } from "../controller/UserController.js";
 import {  StoreOtp, VerifyEmailController } from "../controller/VerifyController.js";
 import {
-    CreateProductController,
+    CreateProductController, DeleteProductController,
     GetAllProductsController,
     UpdateProductController,
 } from "../controller/ProductController.js";
@@ -28,5 +28,6 @@ router.get("/get-all-users", GetAllUsersController);
 router.delete("/delete-user", DeleteUserController);
 router.post("/create_product", CreateProductController);
 router.put("/update_product", UpdateProductController);
+router.delete("/delete_product", DeleteProductController);
 
 export default router;
