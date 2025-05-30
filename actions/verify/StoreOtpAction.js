@@ -1,6 +1,6 @@
 import User from "../../model/User.js";
 import Otp from "../../model/Otp.js";
-import { isUserNull } from "../../utility/refactor/refactor.js";
+import { isUserNull } from "../../utility/reUsableFunctions/reUsableFunctions.js";
 
 const StoreOtpAction = async (request, response) => {
     const { email } = request.body;

@@ -1,4 +1,4 @@
-import { isBodyNull, isUserNull } from "../../utility/refactor/refactor.js";
+import { isBodyNull, isUserNull } from "../../utility/reUsableFunctions/reUsableFunctions.js";
 import Otp from "../../model/Otp.js";
 import User from "../../model/User.js";
 

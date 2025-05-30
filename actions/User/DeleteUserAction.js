@@ -1,4 +1,4 @@
-import { isAdmin, isBodyNull, isUserNull } from "../../utility/refactor/refactor.js";
+import { isAdmin, isBodyNull, isUserNull } from "../../utility/reUsableFunctions/reUsableFunctions.js";
 import User from "../../model/User.js";
 
 const DeleteUserAction = async (request, response) => {

@@ -1,4 +1,4 @@
-import { isAdmin, isBodyNull, isUserNull } from "../../utility/refactor/refactor.js";
+import { isAdmin, isBodyNull, isUserNull } from "../../utility/reUsableFunctions/reUsableFunctions.js";
 import random from "../../utility/random/random.js";
 import Product from "../../model/Product.js";
 

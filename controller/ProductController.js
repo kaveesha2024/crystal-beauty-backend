@@ -1,10 +1,13 @@
 import CreateProductAction from "../actions/Product/CreateProductAction.js";
-import getAllUsersAction from "../actions/User/GetAllUsersAction.js";
-import getAllProductsAction from "../actions/Product/GetAllProductsAction.js";
+import GetAllProductsAction from "../actions/Product/GetAllProductsAction.js";
+import UpdateProductAction from "../actions/Product/UpdateProductAction.js";
 
 export const CreateProductController = async (request, response) => {
     await CreateProductAction(request, response);
 }
-export const getAllProducts = async (req, res) => {
-    await getAllProductsAction(req, res);
+export const GetAllProductsController = async (req, res) => {
+    await GetAllProductsAction(req, res);
+}
+export const UpdateProductController = async (req, res) => {
+    await UpdateProductAction(req, res);
 }

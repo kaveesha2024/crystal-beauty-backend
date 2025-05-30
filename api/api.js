@@ -7,7 +7,11 @@ import {
     UserSignUpController,
 } from "../controller/UserController.js";
 import {  StoreOtp, VerifyEmailController } from "../controller/VerifyController.js";
-import { CreateProductController, getAllProducts } from "../controller/ProductController.js";
+import {
+    CreateProductController,
+    GetAllProductsController,
+    UpdateProductController,
+} from "../controller/ProductController.js";
 const router = express.Router();
 
 //Authentication
@@ -18,10 +22,11 @@ router.post("/auth/get-otp", StoreOtp);
 
 //Users
 router.put("/update-user", UpdateUserController);
-router.get("/get_all_products", getAllProducts);
+router.get("/get_all_products", GetAllProductsController);
 //admin
 router.get("/get-all-users", GetAllUsersController);
 router.delete("/delete-user", DeleteUserController);
 router.post("/create_product", CreateProductController);
+router.put("/update_product", UpdateProductController);
 
 export default router;
