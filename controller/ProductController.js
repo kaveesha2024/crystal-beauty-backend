@@ -2,6 +2,7 @@ import CreateProductAction from "../actions/Product/CreateProductAction.js";
 import GetAllProductsAction from "../actions/Product/GetAllProductsAction.js";
 import UpdateProductAction from "../actions/Product/UpdateProductAction.js";
 import DeleteProductAction from "../actions/Product/DeleteProductAction.js";
+import GetProductByIdAction from "../actions/Product/GetProductByIdAction.js";
 
 export const CreateProductController = async (request, response) => {
     await CreateProductAction(request, response);
@@ -14,4 +15,7 @@ export const UpdateProductController = async (req, res) => {
 }
 export const DeleteProductController = async (req, res) => {
     await DeleteProductAction(req, res);
+}
+export const GetProductByIdController = async (req, res) => {
+    await GetProductByIdAction(req, res);
 }

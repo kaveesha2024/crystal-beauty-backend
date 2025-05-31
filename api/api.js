@@ -9,7 +9,7 @@ import {
 import {  StoreOtp, VerifyEmailController } from "../controller/VerifyController.js";
 import {
     CreateProductController, DeleteProductController,
-    GetAllProductsController,
+    GetAllProductsController, GetProductByIdController,
     UpdateProductController,
 } from "../controller/ProductController.js";
 const router = express.Router();
@@ -23,6 +23,7 @@ router.post("/auth/get-otp", StoreOtp);
 //Users
 router.put("/update-user", UpdateUserController);
 router.get("/get_all_products", GetAllProductsController);
+router.get("/get_product/by_id", GetProductByIdController);
 //admin
 router.get("/get-all-users", GetAllUsersController);
 router.delete("/delete-user", DeleteUserController);
