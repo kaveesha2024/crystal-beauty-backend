@@ -12,7 +12,7 @@ import {
     GetAllProductsController, GetProductByIdController,
     UpdateProductController,
 } from "../controller/ProductController.js";
-import { GetAllOrders, PlaceOrder } from "../controller/OrderController.js";
+import { GetAllOrders, GetOrderByUserId, PlaceOrder } from "../controller/OrderController.js";
 const router = express.Router();
 
 //Authentication
@@ -33,5 +33,6 @@ router.post("/create_product", CreateProductController);
 router.put("/update_product", UpdateProductController);
 router.delete("/delete_product", DeleteProductController);
 router.get("/get_all_orders", GetAllOrders);
+router.get("/get_order_by_user_id", GetOrderByUserId);
 
 export default router;

@@ -1,4 +1,5 @@
 import GetAllOrdersAction from "../actions/Order/GetAllOrdersAction.js";
+import GetOrderByUserIdAction from "../actions/Order/GetOrderByUserIdAction.js";
 import PlaceOrderAction from "../actions/Order/PlaceOrderAction.js";
 
 export const PlaceOrder = async (req, res) => {
@@ -6,4 +7,7 @@ export const PlaceOrder = async (req, res) => {
 };
 export const GetAllOrders = async (req, res) => {
   await GetAllOrdersAction(req, res);
+};
+export const GetOrderByUserId = async (req, res) => {
+  await GetOrderByUserIdAction(req, res);
 };
