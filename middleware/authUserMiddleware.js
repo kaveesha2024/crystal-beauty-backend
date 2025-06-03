@@ -14,19 +14,6 @@ const AuthUserMiddleware = async (request, response, next) => {
             });
             return;
         }
-        // {
-        //   userId: 'CBCU2095102530',
-        //   firstName: 'Kaveesha',
-        //   lastName: 'Sashen',
-        //   email: 'sanaakaveesha@gmail.com',
-        //   role: 'admin',
-        //   isVerified: false,
-        //   phoneNumber: '0740859676',
-        //   address: '265/A Sri Subadrarama RD, Attiligoda, Galle',
-        //   profilePicture: 'https://i.pinimg.com/736x/2f/15/f2/2f15f2e8c688b3120d3d26467b06330c.jpg',
-        //   isBlocked: false,
-        //   iat: 1748178652
-        // }
         request.user = decoded;
         next();
     });

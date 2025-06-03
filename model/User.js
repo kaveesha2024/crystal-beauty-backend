@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-//firstName, lastName, email, password, role, isVerified, phoneNumber, address, profilePicture, isBlocked
 const userSchema = new mongoose.Schema(
     {
         userId: {

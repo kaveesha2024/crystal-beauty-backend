@@ -18,7 +18,6 @@ const PlaceOrderAction = async (request, response) => {
         });
         return;
     }
-    //handle name
     const { body: orderDetails } = request;
     const products = [];
     let totalPrice = 0;
