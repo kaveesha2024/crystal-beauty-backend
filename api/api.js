@@ -12,6 +12,7 @@ import {
     GetAllProductsController, GetProductByIdController,
     UpdateProductController,
 } from "../controller/ProductController.js";
+import { PlaceOrder } from "../controller/OrderController.js";
 const router = express.Router();
 
 //Authentication
@@ -24,6 +25,7 @@ router.post("/auth/get-otp", StoreOtp);
 router.put("/update-user", UpdateUserController);
 router.get("/get_all_products", GetAllProductsController);
 router.get("/get_product/by_id", GetProductByIdController);
+router.post("/place_order", PlaceOrder);
 //admin
 router.get("/get-all-users", GetAllUsersController);
 router.delete("/delete-user", DeleteUserController);
