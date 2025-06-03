@@ -46,7 +46,6 @@ const PlaceOrderAction = async (request, response) => {
     });
     try {
         const res = await newOrder.save();
-        console.log(res)
         if (res){
             response.json({
                 status: 200,
