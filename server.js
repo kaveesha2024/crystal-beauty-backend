@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import router from './api/api.js';
+import api from './routes/api.js';
 import authUserMiddleware from "./middleware/authUserMiddleware.js";
 dotenv.config();
 const app = express();
@@ -16,7 +16,7 @@ mongoose
     .then(() => console.log('connected to db'))
     .catch(err => console.log(err));
 
-app.use('/api', router);
+app.use('/api', api);
 
 app.listen(port, () => {
     console.log(`server is running on port http://127.0.0.1:${port}`);
