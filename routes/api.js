@@ -26,6 +26,8 @@ router.put("/update-user", UpdateUserController);
 router.get("/get_all_products", GetAllProductsController);
 router.get("/get_product/by_id", GetProductByIdController);
 router.post("/place_order", PlaceOrder);
+router.get("/get_order_by_user_id", GetOrderByUserId);
+
 //admin
 router.get("/get-all-users", GetAllUsersController);
 router.delete("/delete-user", DeleteUserController);
@@ -33,7 +35,6 @@ router.post("/create_product", CreateProductController);
 router.put("/update_product", UpdateProductController);
 router.delete("/delete_product", DeleteProductController);
 router.get("/get_all_orders", GetAllOrders);
-router.get("/get_order_by_user_id", GetOrderByUserId);
 router.delete("/delete_order", DeleteOrder);
 
 export default router;
