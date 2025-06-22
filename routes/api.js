@@ -12,7 +12,13 @@ import {
     GetAllProductsController, GetProductByIdController,
     UpdateProductController,
 } from "../controller/ProductController.js";
-import { DeleteOrder, GetAllOrders, GetOrderByUserId, PlaceOrder } from "../controller/OrderController.js";
+import {
+    DeleteOrder,
+    EditOrderStatus,
+    GetAllOrders,
+    GetOrderByUserId,
+    PlaceOrder,
+} from "../controller/OrderController.js";
 const router = express.Router();
 
 //Authentication
@@ -36,5 +42,6 @@ router.put("/update_product", UpdateProductController);
 router.delete("/delete_product", DeleteProductController);
 router.get("/get_all_orders", GetAllOrders);
 router.delete("/delete_order", DeleteOrder);
+router.put("/edit_order_status", EditOrderStatus);
 
 export default router;

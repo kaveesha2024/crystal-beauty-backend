@@ -2,6 +2,7 @@ import GetAllOrdersAction from "../actions/Order/GetAllOrdersAction.js";
 import GetOrderByUserIdAction from "../actions/Order/GetOrderByUserIdAction.js";
 import PlaceOrderAction from "../actions/Order/PlaceOrderAction.js";
 import DeleteOrderAction from "../actions/Order/DeleteOrderAction.js";
+import EditOrderStatusAction from "../actions/Order/EditOrderStatusAction.js";
 
 export const PlaceOrder = async (req, res) => {
   await PlaceOrderAction(req, res);
@@ -14,4 +15,7 @@ export const GetOrderByUserId = async (req, res) => {
 };
 export const DeleteOrder = async (req, res) => {
     await DeleteOrderAction(req, res)
+}
+export const EditOrderStatus = async (req, res) => {
+    await EditOrderStatusAction(req, res)
 }

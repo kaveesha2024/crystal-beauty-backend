@@ -10,7 +10,7 @@ const GetAllOrdersAction = async (request, response) => {
         return;
     }
     try {
-        const allOrders = await Order.find();
+        const allOrders = await Order.find().sort({createdAt: -1});
         if (allOrders.length > 0) {
             response.json({
                 status: 200,
