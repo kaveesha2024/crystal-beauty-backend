@@ -16,7 +16,6 @@ const GetAllOrdersAction = async (request, response) => {
                 status: 200,
                 message: allOrders
             });
-            return;
         }
         else {
             response.json({
