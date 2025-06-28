@@ -42,6 +42,7 @@ const UpdateUserAction = async (request, response) => {
             message: "user updated",
         });
     } catch (error) {
+        console.log(error);
         response.json({
             status: 500,
             message: "Internal Server Error",

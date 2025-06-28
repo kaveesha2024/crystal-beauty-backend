@@ -22,7 +22,6 @@ const GoogleSignUpAction = async (request, response) => {
             }
         });
         let newUserId = "";
-        console.log(newUserId);
         try {
             const existingUser = await User.findOne({ email: res.data.email });
             if (existingUser == null) {
@@ -45,7 +44,6 @@ const GoogleSignUpAction = async (request, response) => {
                 });
                 try {
                     const savedUser = await user.save();
-                    console.log('saveduser', savedUser);
                     if (savedUser){
                         await getJsonWebToken(savedUser, response)
                         return
