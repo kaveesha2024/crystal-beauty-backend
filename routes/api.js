@@ -1,7 +1,7 @@
 import express from "express";
 import {
     DeleteUserController,
-    GetAllUsersController, GoogleSignUpController,
+    GetAllUsersController, GoogleSignInController, GoogleSignUpController,
     UpdateUserController,
     UserSignInController,
     UserSignUpController,

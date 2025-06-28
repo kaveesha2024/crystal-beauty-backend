@@ -61,10 +61,7 @@ const GoogleSignUpAction = async (request, response) => {
                     })
                 }
             }
-            response.json({
-                status: 422,
-                message: "You have already sign up. Try to sign in !"
-            });
+            await getJsonWebToken(existingUser, response);
         }catch (e) {
             response.json({
                 status: 500,
