@@ -1,7 +1,7 @@
 import express from "express";
 import {
     DeleteUserController,
-    GetAllUsersController,
+    GetAllUsersController, GoogleSignUpController,
     UpdateUserController,
     UserSignInController,
     UserSignUpController,
@@ -26,6 +26,7 @@ router.post("/signup", UserSignUpController);
 router.post("/signin", UserSignInController);
 router.post("/auth/verify", VerifyEmailController);
 router.post("/auth/get-otp", StoreOtp);
+router.post("/auth/google", GoogleSignUpController);
 
 //Users
 router.put("/update-user", UpdateUserController);

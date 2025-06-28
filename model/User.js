@@ -36,14 +36,12 @@ const userSchema = new mongoose.Schema(
         },
         phoneNumber: {
             type: String,
-            required: true,
-            unique: true,
-            nullable: true,
             length: 10,
+            nullable: true
         },
         address: {
             type: String,
-            required: true,
+            nullable: true
         },
         profilePicture: {
             type: String,
