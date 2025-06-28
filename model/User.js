@@ -37,11 +37,13 @@ const userSchema = new mongoose.Schema(
         phoneNumber: {
             type: String,
             length: 10,
-            nullable: true
+            nullable: true,
+            unique: false,
         },
         address: {
             type: String,
-            nullable: true
+            unique: false,
+            nullable: true,
         },
         profilePicture: {
             type: String,
