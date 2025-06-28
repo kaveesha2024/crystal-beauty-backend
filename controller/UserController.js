@@ -3,6 +3,7 @@ import UserSignInAction from "../actions/User/UserSignInAction.js";
 import GetAllUsersAction from "../actions/User/GetAllUsersAction.js";
 import UpdateUserAction from "../actions/User/UpdateUserAction.js";
 import DeleteUserAction from "../actions/User/DeleteUserAction.js";
+import GoogleSignUpAction from "../actions/User/GoogleSignUpAction.js";
 export const UserSignUpController = async (request, response) => {
     await UserSignupAction(request, response);
 };
@@ -17,4 +18,7 @@ export const UpdateUserController = async (request, response) => {
 };
 export const DeleteUserController = async (request, response) => {
     await DeleteUserAction(request, response);
+}
+export const GoogleSignUpController = async (request, response) => {
+    await GoogleSignUpAction(request, response);
 }
