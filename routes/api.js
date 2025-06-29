@@ -19,6 +19,7 @@ import {
     GetOrderByUserId,
     PlaceOrder,
 } from "../controller/OrderController.js";
+import { Dashboard } from "../controller/AdminController.js";
 const router = express.Router();
 
 //Authentication
@@ -44,5 +45,6 @@ router.delete("/delete_product", DeleteProductController);
 router.get("/get_all_orders", GetAllOrders);
 router.delete("/delete_order", DeleteOrder);
 router.put("/edit_order_status", EditOrderStatus);
+router.get('/analytics', Dashboard);
 
 export default router;
