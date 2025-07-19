@@ -17,7 +17,6 @@ mongoose
     .catch(err => console.log(err));
 
 app.use('/api', api);
-
 app.listen(port, () => {
     console.log(`server is running on port http://127.0.0.1:${port}`);
 });
