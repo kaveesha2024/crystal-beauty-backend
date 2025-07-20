@@ -1,8 +1,8 @@
 import random from "../../utility/random/random.js";
 import { isUserNull } from "../../utility/reUsableFunctions/reUsableFunctions.js";
-import transporter from "../../utility/transporter/transporter.js";
 import dotenv from "dotenv";
-import Otp from "../../model/Otp.js";
+import SendOtp from "../../utility/sendOtp/SendOtp.js";
+import User from "../../model/User.js";
 dotenv.config()
 const SendOtpAction = async (request, response) => {
     if (isUserNull(request.user)) {
@@ -16,35 +16,23 @@ const SendOtpAction = async (request, response) => {
         });
         return;
     }
-    const emailCode = random(6);
-    const info = await transporter.sendMail({
-        from: `"Crystal Beauty Clear" <${process.env.EMAIL}>`,
-        to: request.body.email,
-        subject: "Your OTP Code for Verification",
-        html: `
-            <div style="font-family: Arial, sans-serif; max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background-color: #fafafa;">
-              <h2 style="color: #333;">Email Verification - Crystal Beauty Clear</h2>
-              <p style="font-size: 16px; color: #555;">Use the OTP below to verify your email address. This code is valid for 5 minutes.</p>
-              <div style="font-size: 28px; font-weight: bold; color: #007bff; margin: 20px 0;">${emailCode}</div>
-              <p style="font-size: 14px; color: #999;">If you didn’t request this, you can safely ignore this email.</p>
-            </div>
-        `,
-    });
-    if (!info.messageId){
-        response.json({status: 500, message: "Something went wrong !!"});
-        return;
-    }
-    try {
-        await Otp.deleteMany({ email: request.body.email });
-        const newOtp = new Otp({
-            otp: emailCode,
-            email: request.body.email,
+    const user = await User.findOne({email: request.body.email});
+    if (!user) {
+        const emailCode = random(6);
+        const message = "Use the OTP below to verify your email address. This code is valid for 5 minutes.";
+        const res = await SendOtp(emailCode, request.body.email, message);
+        if (res===200){
+            response.json({status: 200, message: "OTP sent to your email address"});
+        }else {
+            response.json({status: 500, message: "Internal server error"});
+        }
+    }else {
+        response.json({
+            status: 401,
+            message: "This email is already registered"
         });
-        await newOtp.save();
-        response.json({status:200, message: "OTP Send"});
-    }catch (e) {
-        response.json({status: 500, message: "Something went wrong"})
     }
+
 
 };
 export default SendOtpAction;

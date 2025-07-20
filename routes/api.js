@@ -6,7 +6,7 @@ import {
     UserSignInController,
     UserSignUpController,
 } from "../controller/UserController.js";
-import { sendOtp, StoreOtp, VerifyEmailController } from "../controller/VerifyController.js";
+import { ForgetPasswordSendOtp, sendOtp, StoreOtp, VerifyEmailController } from "../controller/VerifyController.js";
 import {
     CreateProductController, DeleteProductController,
     GetAllProductsController, GetProductByIdController,
@@ -30,6 +30,7 @@ router.post("/auth/verify", VerifyEmailController);
 router.post("/auth/get-otp", StoreOtp);
 router.post("/auth/google", GoogleSignUpController);
 router.post('/get_otp', sendOtp);
+router.post('/reset_password/send_otp', ForgetPasswordSendOtp);
 
 //Users
 router.put("/update-user", UpdateUserController);
