@@ -2,6 +2,7 @@ import User from "../../model/User.js";
 import random from "../../utility/random/random.js";
 import bcrypt from "bcrypt";
 import getJsonWebToken from "../../utility/createJwt/createJwt.js";
+import Otp from "../../model/Otp.js";
 const UserSignupAction = async (request, response) => {
     const { body } = request;
     if (request.body === null) {
@@ -17,7 +18,8 @@ const UserSignupAction = async (request, response) => {
         body?.address === "" ||
         body?.phoneNumber === "" ||
         body?.firstName === "" ||
-        body?.lastName === ""
+        body?.lastName === ""||
+        body?.otp === ""
     ) {
         response.json({
             status: 422,
@@ -40,6 +42,11 @@ const UserSignupAction = async (request, response) => {
         if (!phoneNumberAlreadyExisted) {
             const alreadyExistedAddress = await User.findOne({ address: user.address });
             if (!alreadyExistedAddress) {
+                const verifiedEmail = await Otp.findOne({ email: user.email, otp: user.otp });
+                if (verifiedEmail===null){
+                    response.json({status:401, message: "OTP Code is invalid"});
+                    return;
+                }
                 do {
                     try {
                         newUserId = "CBCU" + random(10);
@@ -55,6 +62,7 @@ const UserSignupAction = async (request, response) => {
                     lastName: user.lastName,
                     phoneNumber: String(user.phoneNumber),
                     address: user.address,
+                    isVerified: true,
                     profilePicture: user.profilePicture,
                 });
                 try {
