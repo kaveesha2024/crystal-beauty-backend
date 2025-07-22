@@ -1,7 +1,7 @@
 import express from "express";
 import {
     DeleteUserController,
-    GetAllUsersController, GoogleSignUpController,
+    GetAllUsersController, GoogleSignUpController, ResetPassword,
     UpdateUserController,
     UserSignInController,
     UserSignUpController,
@@ -31,6 +31,7 @@ router.post("/auth/get-otp", StoreOtp);
 router.post("/auth/google", GoogleSignUpController);
 router.post('/get_otp', sendOtp);
 router.post('/reset_password/send_otp', ForgetPasswordSendOtp);
+router.post("/reset_password", ResetPassword);
 
 //Users
 router.put("/update-user", UpdateUserController);
