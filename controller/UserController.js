@@ -4,6 +4,7 @@ import GetAllUsersAction from "../actions/User/GetAllUsersAction.js";
 import UpdateUserAction from "../actions/User/UpdateUserAction.js";
 import DeleteUserAction from "../actions/User/DeleteUserAction.js";
 import GoogleSignUpAction from "../actions/User/GoogleSignUpAction.js";
+import ResetPasswordAction from "../actions/User/ResetPasswordAction.js";
 export const UserSignUpController = async (request, response) => {
     await UserSignupAction(request, response);
 };
@@ -21,4 +22,7 @@ export const DeleteUserController = async (request, response) => {
 }
 export const GoogleSignUpController = async (request, response) => {
     await GoogleSignUpAction(request, response);
+}
+export const ResetPassword = async (request, response) => {
+    await ResetPasswordAction(request, response);
 }

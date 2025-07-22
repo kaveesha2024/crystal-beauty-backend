@@ -58,7 +58,7 @@ const PlaceOrderAction = async (request, response) => {
                 message: "Something went wrong. Please try again later.",
             }
         )
-    }catch (e){
+    }catch(e){
         response.json(
             {
                 status: 500,

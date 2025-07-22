@@ -17,7 +17,7 @@ const GetOrderByUserIdAction = async (request, response) => {
         return;
     }
     try {
-        const orders = await Order.find({ userId: request.query.userId });
+        const orders = await Order.find({ userId: request.query.userId }).sort({createdAt: -1});
         if (orders.length === 0) {
             response.json({
                 status: 404,
@@ -35,7 +35,6 @@ const GetOrderByUserIdAction = async (request, response) => {
             message: "Internal Server Error",
             error: error.message,
         });
-        return;
     }
 };
 export default GetOrderByUserIdAction;

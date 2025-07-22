@@ -1,12 +1,12 @@
 import express from "express";
 import {
     DeleteUserController,
-    GetAllUsersController, GoogleSignUpController,
+    GetAllUsersController, GoogleSignUpController, ResetPassword,
     UpdateUserController,
     UserSignInController,
     UserSignUpController,
 } from "../controller/UserController.js";
-import {  StoreOtp, VerifyEmailController } from "../controller/VerifyController.js";
+import { ForgetPasswordSendOtp, sendOtp, StoreOtp, VerifyEmailController } from "../controller/VerifyController.js";
 import {
     CreateProductController, DeleteProductController,
     GetAllProductsController, GetProductByIdController,
@@ -19,6 +19,8 @@ import {
     GetOrderByUserId,
     PlaceOrder,
 } from "../controller/OrderController.js";
+import { Dashboard } from "../controller/AdminController.js";
+import { AddComment } from "../controller/CommentController.js";
 const router = express.Router();
 
 //Authentication
@@ -27,6 +29,9 @@ router.post("/signin", UserSignInController);
 router.post("/auth/verify", VerifyEmailController);
 router.post("/auth/get-otp", StoreOtp);
 router.post("/auth/google", GoogleSignUpController);
+router.post('/get_otp', sendOtp);
+router.post('/reset_password/send_otp', ForgetPasswordSendOtp);
+router.post("/reset_password", ResetPassword);
 
 //Users
 router.put("/update-user", UpdateUserController);
@@ -34,6 +39,7 @@ router.get("/get_all_products", GetAllProductsController);
 router.get("/get_product/by_id", GetProductByIdController);
 router.post("/place_order", PlaceOrder);
 router.get("/get_order_by_user_id", GetOrderByUserId);
+router.post("/add_comment", AddComment);
 
 //admin
 router.get("/get-all-users", GetAllUsersController);
@@ -44,5 +50,6 @@ router.delete("/delete_product", DeleteProductController);
 router.get("/get_all_orders", GetAllOrders);
 router.delete("/delete_order", DeleteOrder);
 router.put("/edit_order_status", EditOrderStatus);
+router.get('/analytics', Dashboard);
 
 export default router;
