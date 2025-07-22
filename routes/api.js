@@ -20,7 +20,7 @@ import {
     PlaceOrder,
 } from "../controller/OrderController.js";
 import { Dashboard } from "../controller/AdminController.js";
-import { AddComment } from "../controller/CommentController.js";
+import { AddComment, getCommentsByProductId } from "../controller/CommentController.js";
 const router = express.Router();
 
 //Authentication
@@ -40,6 +40,7 @@ router.get("/get_product/by_id", GetProductByIdController);
 router.post("/place_order", PlaceOrder);
 router.get("/get_order_by_user_id", GetOrderByUserId);
 router.post("/add_comment", AddComment);
+router.get("/get_comments_by_product_id", getCommentsByProductId);
 
 //admin
 router.get("/get-all-users", GetAllUsersController);
