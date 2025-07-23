@@ -17,7 +17,6 @@ const AddCommentAction = async (request, response) => {
     const {comment, productId} = request.body;
     const user = request.user;
     if (!comment||!productId) response.json({status: 422, message: "Unprocessable entity"})
-    console.log('methanath hariii');
     const newComment = new Comment({
         userId: user.userId,
         firstName: user.firstName,

@@ -20,7 +20,7 @@ import {
     PlaceOrder,
 } from "../controller/OrderController.js";
 import { Dashboard } from "../controller/AdminController.js";
-import { AddComment, getCommentsByProductId } from "../controller/CommentController.js";
+import { AddComment, deleteCommentById, getCommentsByProductId } from "../controller/CommentController.js";
 const router = express.Router();
 
 //Authentication
@@ -41,6 +41,7 @@ router.post("/place_order", PlaceOrder);
 router.get("/get_order_by_user_id", GetOrderByUserId);
 router.post("/add_comment", AddComment);
 router.get("/get_comments_by_product_id", getCommentsByProductId);
+router.delete('/delete_comment_by_id', deleteCommentById)
 
 //admin
 router.get("/get-all-users", GetAllUsersController);
